@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Flow-X Telemetry",
+  "version": "1.0.0",
+  "description": "Flow-X Extension for productivity tracking",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "src/background.ts",
+    "type": "module"
+  },
+  "permissions": ["tabs", "storage", "alarms"],
+  "host_permissions": ["*://*/*"]
+}

@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  image         String?
+  profession    String?
+  workingHours  Int?
+  dailyScore    Float?    @default(0)
+  tasks         Task[]
+  telemetry     Telemetry[]
+}
+
+model Task {
+  id        String   @id @default(cuid())
+  title     String
+  duration  Int      // in minutes
+  completed Boolean  @default(false)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Telemetry {
+  id        String   @id @default(cuid())
+  domain    String
+  category  String   // "Deep Work" | "Distraction" | "Neutral"
+  duration  Int      // in seconds
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  timestamp DateTime @default(now())
+}
