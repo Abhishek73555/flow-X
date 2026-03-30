@@ -15,7 +15,6 @@ interface DashboardProps {
   tasks: Task[];
   onUpdateTasks: (tasks: Task[]) => void;
 }
-
 let socketObj: Socket | null = null;
 
 const CountdownTimer: React.FC<{ task: Task; onStatusChange: (status: TaskStatus) => void }> = ({ task, onStatusChange }) => {
