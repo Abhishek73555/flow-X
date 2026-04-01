@@ -2,6 +2,7 @@ import React from 'react';
 import ThemeToggle from './ThemeToggle';
 import logo from '../logo.png';
 
+
 interface LayoutProps {
   children: React.ReactNode;
   isDark?: boolean;
